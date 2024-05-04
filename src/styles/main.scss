@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "variables";
+
+:root {
+	--bs-body-font-size: 1.4rem;
+	@media (min-width: $lg) {
+		--bs-body-font-size: 1.6rem;
+	}
+	--bs-navbar-brand-font-size: 2rem;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 100%;
+	padding: 0 1rem;
+	margin: 0 auto;
+	
+	@media (min-width: $md) {
+		max-width: 47.9rem;
+	}
+	@media (min-width: $lg) {
+		max-width: 57.4rem;
+	}
+	@media (min-width: $lg) {
+		max-width: 75rem;
+	}
+}
+
+.container--medium{
+	max-width: 62.5rem;
+}
+
+
