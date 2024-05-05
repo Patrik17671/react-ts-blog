@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import Homepage from './pages/homepage/Homepage';
 import Detail from './pages/detail/Detail';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import Footer from './components/footer/Footer';
 
 function App() {
   const queryClient = new QueryClient();
@@ -16,9 +17,10 @@ function App() {
           <div className={'container'}>
             <Routes>
               <Route path={'/'} element={<Homepage />} />
-              <Route path={'/blog/:urlName'} element={<Detail />} />
+              <Route path={'/post/:id'} element={<Detail />} />
             </Routes>
           </div>
+          <Footer />
         </Router>
       </QueryClientProvider>
     </div>

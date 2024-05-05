@@ -11,6 +11,13 @@ export type Post = {
 
 export type Comment = {
   id: string;
-  text: string;
-  author: string;
+  comment: string;
+  name: string;
+  replies: Reply[];
+};
+
+export type Reply = {
+  id: string;
+  comment: string;
+  name: string;
 };

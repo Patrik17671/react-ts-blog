@@ -2,14 +2,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "variables";
 
-:root {
-	--bs-body-font-size: 1.4rem;
-	@media (min-width: $lg) {
-		--bs-body-font-size: 1.6rem;
-	}
-	--bs-navbar-brand-font-size: 2rem;
-}
-
 *{
 	margin: 0;
 	padding: 0;

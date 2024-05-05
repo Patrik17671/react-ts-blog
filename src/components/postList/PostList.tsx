@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
-import { fetchBlogList } from '../../utils/fetches';
+import { fetchPostsList } from '../../utils/fetches';
 import PostItem from '../postItem/PostItem';
 import { map } from 'lodash';
 
 const PostList = () => {
-  const { data: posts, isLoading, error } = useQuery('blogs', fetchBlogList);
+  const { data: posts, isLoading, error } = useQuery('posts', fetchPostsList);
 
   if (isLoading) return <div>Loading...</div>;
 
