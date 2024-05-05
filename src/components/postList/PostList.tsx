@@ -6,6 +6,7 @@ import times from 'lodash/times';
 import PostItemSkeleton from '../postItem/PostItemSkeleton';
 
 const PostList = () => {
+  //Fetching data
   const { data: posts, isLoading, error } = useQuery('posts', fetchPostsList);
 
   if (isLoading)

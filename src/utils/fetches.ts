@@ -1,5 +1,6 @@
 import { Post } from '../types/postTypes';
 
+//Fetching functions
 export const fetchPostsList = async (): Promise<Post[]> => {
   try {
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}/posts`);

@@ -7,9 +7,10 @@ import Comments from '../../components/comments/Comments';
 import DetailSkeleton from './DetailSkeleton';
 
 const Detail = () => {
+  //Get id of post
   const { id } = useParams<{ id: string }>();
 
-  //get data
+  //Get post by ID
   const {
     data: post,
     isLoading,

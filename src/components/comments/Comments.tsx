@@ -9,6 +9,7 @@ type CommentsProps = {
   post: Post;
 };
 const Comments: FC<CommentsProps> = ({ comments, post }) => {
+  //Set active id of comment to show reply form
   const [activeReply, setActiveReply] = useState<string>('0');
 
   return (
