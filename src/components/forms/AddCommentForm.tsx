@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button, Form, Card, Alert } from 'react-bootstrap';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Post } from '../../types/postTypes';
 import { addComment } from '../../utils/fetches';
 import { useMutation, useQueryClient } from 'react-query';
@@ -79,6 +79,22 @@ const AddCommentForm: FC<FormProps> = ({ post, replyToId }) => {
       mutation.mutate(updatedPost);
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === 'r') {
+        event.preventDefault();
+        handleSubmit(onSubmit)();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleSubmit, onSubmit]);
+
   return (
     <Card className={'mb-4'}>
       <Card.Header as="h5">{replyToId ? 'Add reply' : 'Add comment'}</Card.Header>
