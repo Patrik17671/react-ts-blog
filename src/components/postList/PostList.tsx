@@ -1,12 +1,21 @@
 import { useQuery } from 'react-query';
 import { fetchPostsList } from '../../utils/fetches';
 import PostItem from '../postItem/PostItem';
-import { map } from 'lodash';
+import map from 'lodash/map';
+import times from 'lodash/times';
+import PostItemSkeleton from '../postItem/PostItemSkeleton';
 
 const PostList = () => {
   const { data: posts, isLoading, error } = useQuery('posts', fetchPostsList);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <>
+        {times(4, index => (
+          <PostItemSkeleton key={index} />
+        ))}
+      </>
+    );
 
   if (error instanceof Error) {
     return (

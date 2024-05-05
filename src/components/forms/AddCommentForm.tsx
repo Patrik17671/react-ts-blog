@@ -81,6 +81,7 @@ const AddCommentForm: FC<FormProps> = ({ post, replyToId }) => {
   };
   return (
     <Card className={'mb-4'}>
+      <Card.Header as="h5">{replyToId ? 'Add reply' : 'Add comment'}</Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group>

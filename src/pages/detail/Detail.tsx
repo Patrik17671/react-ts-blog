@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { fetchPostDetail } from '../../utils/fetches';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import Comments from '../../components/comments/Comments';
-import { isEmpty } from 'lodash';
+import DetailSkeleton from './DetailSkeleton';
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +19,10 @@ const Detail = () => {
     () => (id ? fetchPostDetail(id) : Promise.reject(new Error('ID is undefined'))),
     { enabled: !!id },
   );
+
+  if (isLoading) {
+    return <DetailSkeleton />;
+  }
 
   if (error) return <Alert variant="danger">An error occurred: {error.message}</Alert>;
 
@@ -39,7 +43,7 @@ const Detail = () => {
       </Row>
       <Row className="justify-content-md-center mt-4">
         <Col md={8}>
-          {!isEmpty(post.comments) ? <Comments comments={post.comments} post={post} /> : ''}
+          <Comments comments={post.comments} post={post} />
         </Col>
       </Row>
     </Container>
