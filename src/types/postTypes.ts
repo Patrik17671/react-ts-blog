@@ -1,7 +1,6 @@
 export type Post = {
   id: string;
   title: string;
-  summary: string;
   createdAt: string;
   avatar: string;
   comments: Comment[];
